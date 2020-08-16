@@ -8,6 +8,6 @@ const { Client, Message } = require("discord.js")
  */
 module.exports = (client, args, message) => {
     if (args.length < 2) {
-        message.channel.send("hewwo!")
+        message.channel.send("hello world!")
     }
 }

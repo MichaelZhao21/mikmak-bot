@@ -1,23 +1,17 @@
-var http = require('http');
+const request = require('request');
+const fs = require('fs');
+const path = require('path');
 
-var options = {
-    host: 'webfx.com',
-    path: '/tools/emoji-cheat-sheet/'
-}
-
-var request = http.request(options, function(res) {
-    var data = '';
-    res.on('data', function(chunk) {
-        console.log(chunk);
-        data += chunk;
-    });
-    res.on('end', function() {
-        console.log(data);
-    });
+request('https://www.webfx.com/tools/emoji-cheat-sheet/', function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+        const exp = /<span class="name".*?>(.*?)</g
+        var matches = body.matchAll(exp);
+        var emojis = [];
+        for (const match of matches) {
+            emojis.push(match[1]);
+        }
+        
+        var data = JSON.stringify({ list: emojis });
+        fs.writeFileSync(path.join(__dirname, '..', 'files', 'emojis.json'), data);
+    }
 });
-
-request.on('error', function(e) {
-    console.log(e.message);
-});
-
-request.end();
