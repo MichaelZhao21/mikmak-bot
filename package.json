@@ -1,0 +1,11 @@
+{
+    "name": "mikmak",
+    "version": "0.0.1",
+    "description": "MikMak is the best",
+    "main": "bot.js",
+    "author": "Michael Zhao",
+    "dependencies": {
+        "discord.js": "^12.3.1",
+        "opusscript": "^0.0.7"
+    }
+}
