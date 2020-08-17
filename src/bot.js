@@ -14,6 +14,8 @@ client.on('message', (message) => {
     
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
     
+    if (args.length === 0) return; //TODO: add test for non alphanumeric char
+
     if (args[0] === 'airdrop') airdropCommand(client, args, message);
     else hiCommand(client, args, message);
 });
