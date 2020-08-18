@@ -1,4 +1,4 @@
 {
-    "watch": ["src/bot.js", "src/commands", "src/files"],
+    "watch": ["src/bot.js", "src/commands", "src/files", "src/bot.test.js"],
     "ext": "js, json"
 }

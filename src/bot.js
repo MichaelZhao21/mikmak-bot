@@ -13,6 +13,9 @@ var emojiMaps = {
 client.on('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
     getEmojis().then(() => console.log("Gotten all emojis!"));
+
+    // Do stuff every second
+    setInterval(loop, 1000);
 });
 
 client.on('message', (message) => {
@@ -34,4 +37,8 @@ const getEmojis = async () => {
         emojiMaps.names.set(emojis.names[i], emojis.unicode[i]);
         emojiMaps.unicode.set(emojis.unicode[i], emojis.names[i]);
     }
+}
+
+const loop = () => {
+    
 }

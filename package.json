@@ -15,6 +15,7 @@
     "scripts": {
         "start": "node src/bot.js",
         "dev": "nodemon src/bot.js",
+        "test": "nodemon src/bot.test.js",
         "getEmojis": "node src/functions/pullEmojis.js",
         "trainModel": "node src/functions/train.js"
     }
