@@ -19,6 +19,9 @@ module.exports = (client, args, message) => {
             'UwU',
             'heyyyy',
             'hey :))',
+            'hiiii <3',
+            'OwO hewwo!',
+            'hai :DD',
         ];
         message.channel.send(user + ' ' + greetings[randInt(0, greetings.length)]);
     } else {
