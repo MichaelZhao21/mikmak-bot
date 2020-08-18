@@ -15,7 +15,7 @@
     "scripts": {
         "start": "node src/bot.js",
         "debug": "nodemon src/bot.js",
-        "getEmojis": "node src/functions/scrapeEmojis.js",
+        "getEmojis": "node src/functions/pullEmojis.js",
         "trainModel": "node src/functions/train.js"
     }
 }

@@ -1,0 +1,4 @@
+{
+    "watch": ["src/bot.js", "src/commands", "src/files"],
+    "ext": "js, json"
+}
