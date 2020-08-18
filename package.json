@@ -8,11 +8,14 @@
     "dependencies": {
         "discord.js": "^12.3.1",
         "fs": "^0.0.1-security",
+        "node-nlp": "^4.10.4",
         "opusscript": "^0.0.7",
         "request": "^2.88.2"
     },
     "scripts": {
         "start": "node src/bot.js",
-        "getEmojis": "node src/functions/scrapeEmojis.js"
+        "debug": "nodemon src/bot.js",
+        "getEmojis": "node src/functions/scrapeEmojis.js",
+        "trainModel": "node src/functions/train.js"
     }
 }
