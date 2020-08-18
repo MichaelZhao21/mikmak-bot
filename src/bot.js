@@ -1,9 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const cron = require('cron');
 const config = require('./files/config.json');
 const emojis = require('./files/emojis.json');
+const birthdays = require('./files/birthdays.json');
 const hiCommand = require('./commands/hi');
 const airdropCommand = require('./commands/airdrop');
+const birthday = require('./actions/birthday');
 
 var emojiMaps = {
     names: new Map(),
@@ -13,9 +16,10 @@ var emojiMaps = {
 client.on('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
     getEmojis().then(() => console.log("Gotten all emojis!"));
-
-    // Do stuff every second
-    setInterval(loop, 1000);
+    
+    // Do stuff at midnight
+    let job = new cron.CronJob('10 00 00 * * *', midnightTask);
+    job.start();
 });
 
 client.on('message', (message) => {
@@ -40,5 +44,18 @@ const getEmojis = async () => {
 }
 
 const loop = () => {
-    
+}
+
+const midnightTask = () => {
+    birthdays.forEach((bd) => {
+        var date = bd.date.split('/');
+        if (isDateSameAsToday(date)) {
+            birthday(client, bd, new Date().getFullYear() - parseInt(date[2]));
+        }
+    });
+}
+
+const isDateSameAsToday = (dateArr) => {
+    var today = new Date();
+    return parseInt(dateArr[0]) - 1 === today.getMonth() && parseInt(dateArr[1]) === today.getDate();
 }

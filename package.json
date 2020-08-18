@@ -6,6 +6,7 @@
     "license": "MIT",
     "author": "Michael Zhao",
     "dependencies": {
+        "cron": "^1.8.2",
         "discord.js": "^12.3.1",
         "fs": "^0.0.1-security",
         "node-nlp": "^4.10.4",
