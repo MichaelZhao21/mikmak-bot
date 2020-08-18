@@ -15,10 +15,18 @@ module.exports = (client, args, message) => {
     else if (args.length > 2)
         message.channel.send(`${user} Sorry my plane can only fit 1 item :((`);
     else {
-        if (emojis.list.indexOf(args[1]) !== -1) {
-            message.channel.send(`${user}\n:airplane:\n:${args[1]}:\nAirdropped ${args[1]}!`);
-        }
-        else {
+        var unicodeIndex = emojis.unicode.indexOf(args[1]);
+        var nameIndex = emojis.names.indexOf(args[1]);
+        if (unicodeIndex !== -1) {
+            message.channel
+                .send(`:airplane:\n:${emojis.names[unicodeIndex]}:`)
+                .then(() => message.react(args[1]));
+        } else if (nameIndex !== -1) {
+            message.channel
+                .send(`:airplane:\n:${args[1]}:`)
+                .then(() => message.react(emojis.unicode[nameIndex]));
+                //
+        } else {
             message.channel.send(`${user} Bruh ${args[1]} isn't an emoji`);
         }
     }
