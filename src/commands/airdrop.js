@@ -1,4 +1,5 @@
 const { Client, Message } = require('discord.js');
+const emojis = require('../files/emojis.json');
 
 /**
  * Airdrops fruit!
@@ -6,7 +7,7 @@ const { Client, Message } = require('discord.js');
  * @param {Array<string>} args
  * @param {Message} message
  */
-module.exports = (client, args, message, emojis) => {
+module.exports = (client, args, message) => {
     const user = message.author.toString();
 
     if (args.length < 2)
@@ -45,17 +46,18 @@ module.exports = (client, args, message, emojis) => {
 };
 
 async function airdrop(args, index, message, emojis) {
-    var unicodeIndex = emojis.unicode.get(args[index]);
-    var nameIndex = emojis.names.get(args[index]);
-    if (unicodeIndex !== undefined) {
+    var unicodeIndex = emojis.unicode.indexOf(args[index]);
+    var nameIndex = emojis.names.indexOf(args[index]);
+    if (unicodeIndex !== -1) {
+        console.log(unicodeIndex)
         await message.channel
-            .send(`:${unicodeIndex}:`)
+            .send(`:${emojis.names[unicodeIndex]}:`)
             .then(() => message.react(args[index]));
         return true;
-    } else if (nameIndex !== undefined) {
+    } else if (nameIndex !== -1) {
         await message.channel
             .send(`:${args[index]}:`)
-            .then(() => message.react(nameIndex));
+            .then(() => message.react(emojis.unicode[nameIndex]));
         return true;
     } else {
         return false;

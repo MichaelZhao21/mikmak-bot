@@ -2,21 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const cron = require('cron');
 const config = require('./files/config.json');
-const emojis = require('./files/emojis.json');
 const birthdays = require('./files/birthdays.json');
 const hiCommand = require('./commands/hi');
 const airdropCommand = require('./commands/airdrop');
 const birthday = require('./actions/birthday');
 
-var emojiMaps = {
-    names: new Map(),
-    unicode: new Map()
-}
-
 client.on('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
-    getEmojis().then(() => console.log("Gotten all emojis!"));
-    
+
     // Do stuff at midnight
     let job = new cron.CronJob('10 00 00 * * *', midnightTask);
     job.start();
@@ -30,18 +23,11 @@ client.on('message', (message) => {
     
     if (args.length === 0) return; //TODO: add test for non alphanumeric char
 
-    if (args[0] === 'airdrop' && emojiMaps.unicode.get('🇺🇳') !== undefined) airdropCommand(client, args, message, emojiMaps);
+    if (args[0] === 'airdrop') airdropCommand(client, args, message);
     else hiCommand(client, args, message);
 });
 
 client.login(config.token);
-
-const getEmojis = async () => {
-    for (var i = 0; i < emojis.names.length; i++) {
-        emojiMaps.names.set(emojis.names[i], emojis.unicode[i]);
-        emojiMaps.unicode.set(emojis.unicode[i], emojis.names[i]);
-    }
-}
 
 const loop = () => {
 }
