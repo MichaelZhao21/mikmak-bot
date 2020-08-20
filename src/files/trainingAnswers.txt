@@ -19,12 +19,12 @@ comment.bad no u :))
 comment.bad aw :(
 comment.bad I'll try harder then!
 comment.bad hah not like ur any better
-comment.marry no
-comment.marry why do u want to marry a bot
-comment.marry babe im not ready for that yet...
-comment.marry ask again tomorrow ahaha
-comment.marry OMG YES <3333 :ring::heart:
-comment.marry awww of course ill marry you <3
+question.marry no
+question.marry why do u want to marry a bot
+question.marry babe im not ready for that yet...
+question.marry ask again tomorrow ahaha
+question.marry OMG YES <3333 :ring::heart:
+question.marry awww of course ill marry you <3
 comment.hot have you seen YOURSELF?
 comment.hot omg of course I am
 comment.hot ikr im literally the sun
@@ -45,12 +45,12 @@ question.smart I'm literally einstein right here
 question.smart you're talking to mr.9000 iq hehe
 question.smart no im dumb LOL
 question.smart yes :)
-question.flirt hey ;)
-question.flirt hey babygirl :)))
-question.flirt :kissing_heart:
-question.flirt damn ur cute af
-question.flirt wow... i think im falling for you
-question.flirt you give me butterflies :pleading_face:
+comment.flirt hey ;)
+comment.flirt hey babygirl :)))
+comment.flirt :kissing_heart:
+comment.flirt damn ur cute af
+comment.flirt wow... i think im falling for you
+comment.flirt you give me butterflies :pleading_face:
 question.date hell yeah I'd date you
 question.date if ur cute enough ill date you
 question.date maybeeeeee

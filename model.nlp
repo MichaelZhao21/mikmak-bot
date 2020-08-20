@@ -6574,7 +6574,7 @@
             "answer": "hah not like ur any better"
           }
         ],
-        "comment.marry": [
+        "question.marry": [
           {
             "answer": "no"
           },
@@ -6664,7 +6664,7 @@
             "answer": "yes :)"
           }
         ],
-        "question.flirt": [
+        "comment.flirt": [
           {
             "answer": "hey ;)"
           },
