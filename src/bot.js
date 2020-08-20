@@ -18,8 +18,8 @@ client.on('ready', () => {
 
     // Load nlp manager
     try {
-        if (fs.existsSync(path.join(__dirname, 'files', 'model.nlp'))) {
-            manager.load(path.join(__dirname, 'files', 'model.nlp'));
+        if (fs.existsSync(path.join(__dirname, '..', 'model.nlp'))) {
+            manager.load(path.join(__dirname, '..', 'model.nlp'));
             console.log('NLP loaded!');
             nlpValid = true;
         }

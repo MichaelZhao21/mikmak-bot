@@ -53,7 +53,7 @@ const getExtraQuestions = () => {
     return log;
 };
 
-const getAnswers = async () => {
+const getAnswers = () => {
     const aInterface = readline.createInterface({
         input: fs.createReadStream(
             path.join(__dirname, '..', 'files', 'trainingAnswers.txt')
@@ -78,6 +78,24 @@ const train = async () => {
     console.info('Trained (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 };
 
+const actualTraining = async () => {
+    const qInterface = getQuestions(false);
+    qInterface.on('close', async () => {
+        console.log('\nGotten Questions!\n');
+        const eq2Interface = getQuestions(true);
+        eq2Interface.on('close', async () => {
+            console.log('\nGotten Extra Questions!\n');
+            const aInterface = getAnswers();
+            aInterface.on('close', async () => {
+                console.log('\nGotten Answers!\n');
+                await train();
+                await manager.save();
+                console.log('\nModel completed!');
+            });
+        });
+    });
+};
+
 const runTraining = () => {
     const eqInterface = getExtraQuestions();
     eqInterface.on('close', async () => {
@@ -97,26 +115,12 @@ const runTraining = () => {
                 .toString()
         );
         fs.unlinkSync(path.join(__dirname, '..', 'files', 'nlpLog'));
-        const qInterface = getQuestions(false);
-        qInterface.on('close', async () => {
-            console.log('\nGotten Questions!\n');
-            const eq2Interface = getQuestions(true);
-            eq2Interface.on('close', async () => {
-                console.log('\nGotten Extra Questions!\n');
-                await train();
-                const aInterface = getAnswers();
-                aInterface.on('close', () => {
-                    console.log('\nGotten Answers!\n');
-                    manager.save();
-                    console.log('\nModel completed!');
-                });
-            });
-        });
+        actualTraining();
     });
 };
 
 if (force) {
-    runTraining();
+    actualTraining();
 } else {
     fs.access(path.join(__dirname, '..', 'files', 'nlpLog'), F_OK, (err) => {
         if (err) {
