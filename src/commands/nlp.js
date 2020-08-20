@@ -15,7 +15,7 @@ module.exports = async (query, message, manager) => {
         response.score
     }\n`;
     fs.appendFile(
-        path.join(__dirname, '..', 'files', 'nlpLog.txt'),
+        path.join(__dirname, '..', 'files', 'nlpLog'),
         output,
         () => {}
     );
