@@ -2,6 +2,7 @@ const { NlpManager } = require('node-nlp');
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const { F_OK } = require('constants');
 
 const manager = new NlpManager({ languages: ['en'], nlu: { log: true } });
 var qs = '';
@@ -76,12 +77,14 @@ const train = async () => {
     console.info('Trained (hr): %ds %dms', hrend[0], hrend[1] / 1000000);
 };
 
-const qInterface = getQuestions(false);
-qInterface.on('close', async () => {
-    console.log('\nGotten Questions!\n');
+const runTraining = () => {
     const eqInterface = getExtraQuestions();
     eqInterface.on('close', async () => {
         console.log('\nParsed Extra Questions!\n');
+        if (qs === '') {
+            console.log('No extra interesting data');
+            return;
+        }
         fs.appendFileSync(
             path.join(__dirname, '..', 'files', 'extraTrainingQuestions.txt'),
             qs
@@ -93,16 +96,30 @@ qInterface.on('close', async () => {
                 .toString()
         );
         fs.unlinkSync(path.join(__dirname, '..', 'files', 'nlpLog'));
-        const eq2Interface = getQuestions(true);
-        eq2Interface.on('close', async () => {
-            console.log('\nGotten Extra Questions!\n');
-            await train();
-            const aInterface = getAnswers();
-            aInterface.on('close', () => {
-                console.log('\nGotten Answers!\n');
-                manager.save(path.join(__dirname, '..', 'files', 'model.nlp'));
-                console.log('\nModel completed!');
+        const qInterface = getQuestions(false);
+        qInterface.on('close', async () => {
+            console.log('\nGotten Questions!\n');
+            const eq2Interface = getQuestions(true);
+            eq2Interface.on('close', async () => {
+                console.log('\nGotten Extra Questions!\n');
+                await train();
+                const aInterface = getAnswers();
+                aInterface.on('close', () => {
+                    console.log('\nGotten Answers!\n');
+                    manager.save(
+                        path.join(__dirname, '..', 'files', 'model.nlp')
+                    );
+                    console.log('\nModel completed!');
+                });
             });
         });
     });
-});
+};
+
+fs.access(path.join(__dirname, '..', 'files', 'nlpLog'), F_OK, (err) => {
+    if (err) {
+        console.log('No new data!');
+        return;
+    }
+    runTraining();
+})
