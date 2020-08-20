@@ -31,10 +31,14 @@ function getLogDateAndTime() {
     const now = new Date();
     return (
         `${now.getFullYear()}-${pad2((now.getMonth() + 1).toString())}-${pad2(now.getDate().toString())} ` +
-        `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()},${now.getMilliseconds()}`
+        `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())},${pad3(now.getMilliseconds())}`
     );
 }
 
 function pad2(input) {
     return ("00" + input).slice(-2);
+}
+
+function pad3(input) {
+    return (input + "000").slice(-3);
 }
