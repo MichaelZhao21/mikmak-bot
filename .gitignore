@@ -1,5 +1,6 @@
 node_modules
 config.json
 birthdays.json
-nlpLog.txt
+nlpLog
 mikmak-bot
+oldNlpLog

@@ -1,0 +1,9 @@
+greeting.hi hi mikmak
+greeting.hi hewwo :333
+question.age how old are u
+comment.annoying you dont annoy me
+greeting.hi whats up hi
+greeting.hi hi whats poppin
+greeting.hi hello whats up
+greeting.hi hello heya
+greeting.hi hey whats poppin

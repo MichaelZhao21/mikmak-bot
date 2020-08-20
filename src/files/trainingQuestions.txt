@@ -15,3 +15,74 @@ comment.bad you are bad
 comment.bad you suck
 comment.bad you're horrible
 comment.bad you're useless
+question.marry will you marry me
+question.marry be my husband
+question.marry be my wife
+comment.hot you’re hot
+comment.hot you’re so fine
+comment.hot why u so hot
+comment.hot im hot
+question.food what food do you like
+question.food what do you want to eat
+comment.cute you are so cute
+question.smart are you smart
+comment.flirt ;)
+comment.flirt kissing heart
+comment.flirt robots are attractive
+comment.flirt i would simp for you
+comment.flirt hey cutie
+question.date would you date me
+question.date do you want to date a human
+question.birthday when’s your birthday?
+question.birthday when were you born?
+question.music do you enjoy music?
+question.music what do you like to listen to?
+question.music what music do you like?
+comment.boring ur boring
+comment.boring im bored
+comment.boring this is boring
+question.sentient are you alive?
+question.sentient are you conscious? 
+question.sentient are you sentient?
+question.daddy who’s your daddy
+question.daddy am i your daddy
+question.daddy do you have a daddy
+question.sexytimes so u wanna bang or what
+question.sexytimes lets smash
+question.sexytimes fuck me
+question.sexytimes suck my dick
+question.politics what do you think of the current political climate
+question.weather how’s the weather?
+question.weather the weather is nice today
+comment.love i love you
+comment.love i would die for you
+comment.love ily
+comment.love ilysm
+comment.love heart
+comment.like i like you
+comment.like i like talking to you
+comment.hate i hate you
+comment.hate fuck you
+comment.hate i dont like you
+comment.hate ihy
+comment.hate ihysm
+comment.hate i hope you die
+comment.hate jump off a cliff
+question.advice give me some advice
+question.advice advice pls
+question.advice what do you suggest?
+question.advice life advice
+question.travel do you want to go anywhere?
+question.travel where would you like to travel?
+question.travel if you could go anywhere, where would you go
+question.busy are you busy
+question.doing what are you doing right now
+question.doing are u doing anything
+questions.doing whatcha doing fam
+questions.doing whatcha up to 
+comment.gay you’re gay
+comment.gay are you gay
+comment.gay are you lesbian
+comment.gay are you bisexual
+comment.gay are you bi
+
