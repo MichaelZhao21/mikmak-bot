@@ -18,6 +18,7 @@
         "dev": "nodemon src/bot.js",
         "test": "nodemon src/bot.test.js",
         "emoji": "node src/functions/pullEmojis.js",
-        "train": "node src/functions/train.js"
+        "train": "node src/functions/train.js",
+        "train force": "node src/functions/train.js force"
     }
 }

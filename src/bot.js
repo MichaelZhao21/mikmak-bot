@@ -17,10 +17,14 @@ client.on('ready', () => {
     console.log(`Ready! Logged in as ${client.user.tag}`);
 
     // Load nlp manager
-    if (fs.existsSync(path.join(__dirname, 'files', 'model.nlp'))) {
-        manager.load(path.join(__dirname, 'files', 'model.nlp'));
-        console.log('NLP loaded!');
-        nlpValid = true;
+    try {
+        if (fs.existsSync(path.join(__dirname, 'files', 'model.nlp'))) {
+            manager.load(path.join(__dirname, 'files', 'model.nlp'));
+            console.log('NLP loaded!');
+            nlpValid = true;
+        }
+    } catch(err) {
+        console.log('no nlp model!');
     }
 
     // Do stuff at midnight

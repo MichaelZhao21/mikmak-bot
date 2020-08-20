@@ -11,6 +11,10 @@ const path = require('path');
  */
 module.exports = async (query, message, manager) => {
     const response = await manager.process('en', query);
+    console.log(response)
+    if (response.answer !== undefined) message.channel.send(response.answer);
+    else message.channel.send('Sorry idk how to answer that yet :(');
+
     var output = `${getLogDateAndTime()} | "${query}" | ${response.intent} | ${
         response.score
     }\n`;
@@ -19,8 +23,6 @@ module.exports = async (query, message, manager) => {
         output,
         () => {}
     );
-    if (response.answer !== undefined) message.channel.send(response.answer);
-    else message.channel.send('Sorry idk how to answer that yet :(');
 };
 
 function randInt(min, max) {

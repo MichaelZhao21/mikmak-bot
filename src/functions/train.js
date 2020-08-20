@@ -6,6 +6,7 @@ const { F_OK } = require('constants');
 
 const manager = new NlpManager({ languages: ['en'], nlu: { log: true } });
 var qs = '';
+const force = process.argv.length === 3 && process.argv[2] === 'force';
 
 const getQuestions = (extra) => {
     const qInterface = readline.createInterface({
@@ -81,7 +82,7 @@ const runTraining = () => {
     const eqInterface = getExtraQuestions();
     eqInterface.on('close', async () => {
         console.log('\nParsed Extra Questions!\n');
-        if (qs === '') {
+        if (qs === '' && !force) {
             console.log('No extra interesting data');
             return;
         }
@@ -106,9 +107,7 @@ const runTraining = () => {
                 const aInterface = getAnswers();
                 aInterface.on('close', () => {
                     console.log('\nGotten Answers!\n');
-                    manager.save(
-                        path.join(__dirname, '..', 'files', 'model.nlp')
-                    );
+                    manager.save();
                     console.log('\nModel completed!');
                 });
             });
@@ -116,10 +115,14 @@ const runTraining = () => {
     });
 };
 
-fs.access(path.join(__dirname, '..', 'files', 'nlpLog'), F_OK, (err) => {
-    if (err) {
-        console.log('No new data!');
-        return;
-    }
+if (force) {
     runTraining();
-})
+} else {
+    fs.access(path.join(__dirname, '..', 'files', 'nlpLog'), F_OK, (err) => {
+        if (err) {
+            console.log('No new data!');
+            return;
+        }
+        runTraining();
+    });
+}
