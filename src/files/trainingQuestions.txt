@@ -1,0 +1,17 @@
+greeting.hi hello
+greeting.hi hi
+greeting.hi haiii
+greeting.hi hewwo
+greeting.hi howdy
+greeting.hi hey
+question.age what is your age
+question.age age
+question.age how old are you
+comment.annoying why are you so annoying
+comment.annoying you're so annoying
+comment.annoying you are irritating
+comment.annoying you annoy me
+comment.bad you are bad
+comment.bad you suck
+comment.bad you're horrible
+comment.bad you're useless

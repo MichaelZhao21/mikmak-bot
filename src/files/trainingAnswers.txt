@@ -1,0 +1,21 @@
+greeting.hi hiiiii
+greeting.hi hewwo :33
+greeting.hi UwU
+greeting.hi heyyyy
+greeting.hi hi :)
+question.age I'm as old as you want me to be
+question.age 18 :)
+question.age Older than you
+question.age idk TT
+comment.annoying :(((
+comment.annoying Really? I'm sorry
+comment.annoying oh I'll stop talking then...
+comment.annoying oh okay TT
+comment.annoying whyyyy I'm just listening to you
+comment.annoying okay bye
+comment.annoying no <3
+comment.annoying no u
+comment.bad no u :))
+comment.bad aw :(
+comment.bad I'll try harder then!
+comment.bad hah not like ur any better
