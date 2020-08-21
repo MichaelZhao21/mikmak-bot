@@ -42,5 +42,5 @@ function pad2(input) {
 }
 
 function pad3(input) {
-    return (input + "000").slice(-3);
+    return (input + "000").slice(0, 3);
 }
