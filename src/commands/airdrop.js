@@ -1,13 +1,12 @@
-const { Client, Message } = require('discord.js');
+const { Message } = require('discord.js');
 const emojis = require('../files/emojis.json');
 
 /**
  * Airdrops fruit!
- * @param {Client} client
  * @param {Array<string>} args
  * @param {Message} message
  */
-module.exports = (client, args, message) => {
+module.exports = (args, message) => {
     const user = message.author.toString();
 
     if (args.length < 2)

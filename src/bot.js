@@ -9,6 +9,7 @@ const path = require('path');
 const airdropCommand = require('./commands/airdrop');
 const nlp = require('./commands/nlp');
 const birthday = require('./actions/birthday');
+const joke = require('./commands/joke');
 
 const manager = new NlpManager({ languages: ['en'] });
 let nlpValid = false;
@@ -43,7 +44,8 @@ client.on('message', (message) => {
 
     if (args.length === 0) return; //TODO: add test for non alphanumeric char
 
-    if (args[0] === 'airdrop') airdropCommand(client, args, message);
+    if (args[0] === 'airdrop') airdropCommand(args, message);
+    else if (args[0] === 'joke') joke(args, message);
     else if (nlpValid)
         nlp(message.content.slice(config.prefix.length), message, manager);
     else message.channel.send('Natural Language Processing Broken :((( Tell Mikey about this!!!');
