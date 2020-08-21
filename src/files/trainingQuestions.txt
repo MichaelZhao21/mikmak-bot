@@ -85,4 +85,7 @@ comment.gay are you gay
 comment.gay are you lesbian
 comment.gay are you bisexual
 comment.gay are you bi
-
+comment.sad i'm sad
+comment.sad me sad :(((
+comment.sad help me im sad
+comment.sad sad
