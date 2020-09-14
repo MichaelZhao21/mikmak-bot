@@ -10,6 +10,7 @@ const airdropCommand = require('./commands/airdrop');
 const nlp = require('./commands/nlp');
 const birthday = require('./actions/birthday');
 const joke = require('./commands/joke');
+// const music = require('./commands/old-music');
 
 const manager = new NlpManager({ languages: ['en'] });
 let nlpValid = false;
@@ -21,10 +22,10 @@ client.on('ready', () => {
     try {
         if (fs.existsSync(path.join(__dirname, '..', 'model.nlp'))) {
             manager.load(path.join(__dirname, '..', 'model.nlp'));
-            console.log('NLP loaded!');
+            console.log('NLP Manager loaded');
             nlpValid = true;
         }
-    } catch(err) {
+    } catch (err) {
         console.log('no nlp model!');
     }
 
@@ -46,9 +47,20 @@ client.on('message', (message) => {
 
     if (args[0] === 'airdrop') airdropCommand(args, message);
     else if (args[0] === 'joke') joke(args, message);
+    // else if (
+    //     args[0] === 'play' ||
+    //     args[0] === 'pause' ||
+    //     args[0] === 'skip' ||
+    //     args[0] === 'loop' ||
+    //     args[0] === 'stop'
+    // )
+    //     music(args, message);
     else if (nlpValid)
         nlp(message.content.slice(config.prefix.length), message, manager);
-    else message.channel.send('Natural Language Processing Broken :((( Tell Mikey about this!!!');
+    else
+        message.channel.send(
+            'Natural Language Processing Broken :((( Tell Mikey about this!!!'
+        );
 });
 
 client.login(config.token);
