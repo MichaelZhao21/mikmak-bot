@@ -8,7 +8,8 @@ const fetch = require('node-fetch');
  */
 module.exports = (args, message) => {
     fetch('https://sv443.net/jokeapi/v2/joke/Miscellaneous,Dark,Pun?blacklistFlags=racist').then(data => data.json()).then((data) => {
-        if (data.error) return;
+        console.log(data);
+	if (data.error) return;
         if (data.type === 'single') {
             message.channel.send(message.author.toString() + " " + data.joke);
         }
