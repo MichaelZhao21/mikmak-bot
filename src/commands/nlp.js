@@ -9,7 +9,7 @@ const path = require('path');
  * @param {Message} message
  * @param {NlpManager} manager
  */
-pasmodule.exports = async (query, message, manager) => {
+module.exports = async (query, message, manager) => {
     const response = await manager.process('en', query);
     console.log(response)
     if (response.answer !== undefined) message.channel.send(response.answer);
